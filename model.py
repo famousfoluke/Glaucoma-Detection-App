@@ -23,8 +23,7 @@ prediction_labels = {
 # Streamlit App
 st.title("Glaucoma Early Detection App")
 
-st.write("This app helps in detecting glaucoma in eye images by classifying it into Normal , Early Glaucoma and Advanced Glaucoma class. 
-Please upload only retina fundus images")
+st.write("This app helps in detecting glaucoma in eye images by classifying it into Normal, Early Glaucoma and Advanced Glaucoma class. Please upload only retina fundus images")
 
 # Upload an image
 uploaded_image = st.file_uploader("Upload an image", type=["jpg", "png"])

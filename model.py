@@ -23,6 +23,9 @@ prediction_labels = {
 # Streamlit App
 st.title("Glaucoma Early Detection App")
 
+st.write("This app helps in detecting glaucoma in eye images by classifying it into Normal , Early Glaucoma and Advanced Glaucoma class. 
+Please upload only retina fundus images")
+
 # Upload an image
 uploaded_image = st.file_uploader("Upload an image", type=["jpg", "png"])
 
@@ -40,6 +43,14 @@ if uploaded_image:
 
     # Make a prediction using the preprocessed image
     prediction = model.predict(preprocessed_image)
+
+    # Plot the accuracy of the prediction on a bar chart
+    fig, ax = plt.subplots()
+    predicted_labels = [prediction_labels[i] for i in range(len(prediction[0]))]
+    ax.bar(predicted_labels, prediction[0])
+    ax.set_ylabel('Probability')
+    ax.set_title('Prediction Accuracy')
+    st.pyplot(fig)
 
     # Get the class with the highest probability
     predicted_class = prediction.argmax()

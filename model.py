@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Load the pre-trained model
 model = tf.keras.models.load_model('my_model_Final.h5')
